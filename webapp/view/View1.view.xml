@@ -1,0 +1,68 @@
+<mvc:View controllerName="com.app.project2.controller.View1"
+    xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core" displayBlock="true"
+    xmlns="sap.m">
+   <Page id="page" title="{i18n>title}">
+        <Table
+            id="TableId"
+            inset="false"
+            headerText="All Slots"
+            items="{/SAMPLE_ODATASet}"
+            mode="SingleSelectMaster">
+            <headerToolbar>
+                <Toolbar id="allSlotstableToolbar" class="stickyToolbar">
+                    <Title id="allSlotstableTitle" text="All slots" titleStyle="H3"/>
+                    <ToolbarSpacer id="toolbarspacer1"/>
+                    <SearchField id="SearchField1" width="12rem" placeholder="Search" search="onSearch"/>
+                    <Button id="_IDGenButton1" text="Add New Materal" type="Accept" press="onAddButton"/>
+                    <Button id="_IDGenButton2" text="Delete" type="Reject" press="onDelete"/>
+                    <Button id="_IDGenButton3" text="Edit" type="Emphasized" press="onEdit"/>
+                </Toolbar>
+            </headerToolbar>
+            <columns>
+                <Column>
+                    <Text text="Material Number"/>
+                </Column>
+                <Column>
+                    <Text text="Gross Weight"/>
+                </Column>
+                <Column>
+                    <Text text="Net Weight"/>
+                </Column>
+            </columns>
+            <items>
+                <ColumnListItem>
+                    <cells>
+                      <VBox >
+                        <Text text="{Matnr}"  visible="true"/>
+                        <Input value="{Matnr}"  id  = "InputMatnr" visible="false"></Input>
+                        </VBox>
+                        <VBox >
+                        <Text text="{Brgew}" visible="true"/>
+                          <Input value="{Brgew}"  id  = "InputBrgew" visible="false"></Input>
+                        </VBox>
+                        <VBox >
+                        <Text text="{Ntgew}" visible="true"/>
+                          <Input value="{Ntgew}" id  = "InputNtgew" visible="false"></Input>
+                         </VBox>
+                    </cells>
+                </ColumnListItem>
+            </items>
+        </Table>
+       <Dialog id="AddDialog" title="Add New Material" class="sapUiContentPadding" contentHeight="20%">
+            <content>
+            <VBox id="_IDAddVBox1">
+            <Label id="inputAddSlotnoLabel1" text="Material Number"/>
+            <Input id="inputAddSlotno1"/>
+            <Label id="inputAddSlotnoLabel2" text="Gross Weight"/>
+            <Input id="inputAddSlotno2"/>
+            <Label id="inputAddSlotnoLabel3" text="Net Weight"/>
+            <Input id="inputAddSlotno3"/>
+            </VBox>
+            </content>
+            <buttons>
+            <Button id="AddBtn" text="Add" press="onSaveAdd" type="Accept"/>
+            <Button id="AddcancelBtn" text="Cancel" press="onCancelAdd" type="Emphasized"/>
+            </buttons>
+        </Dialog>
+    </Page>
+</mvc:View>
